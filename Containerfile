@@ -1,13 +1,16 @@
-FROM registry.access.redhat.com/ubi8/ubi:latest
+FROM registry.access.redhat.com/ubi7
 
+ARG BUILD_DATE
+
+LABEL summary="Red Hat Universal Base Image 7 with tooling."
 LABEL maintainer="Uco Mesdag <uco@mesd.ag>"
-LABEL build-date="2021-05-31T23:08:04CEST"
+LABEL build-date=${BUILD_DATE}
 
-ENV container=docker
+ENV container=podman
 
 WORKDIR /root
 
-RUN dnf -y update && dnf -y install \
+RUN yum -y update && yum -y install \
     iputils \
     iproute \
     bind-utils \
@@ -17,7 +20,7 @@ RUN dnf -y update && dnf -y install \
     curl \
     zip \
     less \
-    && dnf clean all
+    && yum clean all
 
 VOLUME ["/sys/fs/cgroup"]
 
