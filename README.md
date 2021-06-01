@@ -1,19 +1,19 @@
 Red Hat Universal Base Image with tooling
 =====================
 
-This Dockerfile vcan be used for debugging.
+This Containerfile can be used for debugging.
 
-[![rhel-tools build status](https://quay.io/repository/ucomesdag/rhel-tools/status "Docker Repository on Quay")](https://quay.io/repository/ucomesdag/rhel-tools)
+[![rhel-tools build status](https://quay.io/repository/ucomesdag/rhel-tools/status "Container Repository on Quay")](https://quay.io/repository/ucomesdag/rhel-tools)
 
 Branches
 --------
 
 This repository has multiple branches that relate to RedHat versions.
 
-|Branch |RHEL Version|Docker image tag|
-|-------|------------|----------------|
-|main   |latest (8)  |latest          |
-|7      |7           |7               |
+|Branch |RHEL Version|Container image tag|
+|-------|------------|-------------------|
+|main   |latest (8)  |latest             |
+|7      |7           |7                  |
 
 Pull strategy
 -------------
@@ -24,9 +24,9 @@ Manually starting
 -----------------
 
 ```
-docker run \
+podman run \
   --tty \
   --privileged \
   --volume /sys/fs/cgroup:/sys/fs/cgroup:ro \
-  quay.io/ucomesdag/rhel-tools
+  quay.io/ucomesdag/rhel-tools:7
 ```

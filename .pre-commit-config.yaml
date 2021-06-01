@@ -12,3 +12,8 @@ repos:
       - { id: detect-private-key }
       - { id: end-of-file-fixer }
       - { id: trailing-whitespace }
+
+  - repo: https://github.com/ucomesdag/build-date
+    rev: v0.0.0
+    hooks:
+      - id: container_build_date
